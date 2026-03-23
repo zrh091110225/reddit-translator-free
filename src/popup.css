@@ -311,8 +311,24 @@ input[type="range"]::-webkit-slider-thumb {
   padding-bottom: 0;
 }
 
+.stats-container {
+  background: var(--system-gray6);
+  border-radius: 10px;
+  padding: 12px;
+  margin-top: 4px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 250px; /* High enough for content */
+  opacity: 1;
+}
+
 .debug-section.collapsed .stats-container {
-  display: none;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .row-header.clickable {
@@ -363,12 +379,7 @@ input[type="range"]::-webkit-slider-thumb {
   padding: 4px 8px;
 }
 
-.stats-container {
-  background: var(--system-gray6);
-  border-radius: 10px;
-  padding: 12px;
-  margin-top: 4px;
-}
+
 
 #statsBox {
   margin: 0;
