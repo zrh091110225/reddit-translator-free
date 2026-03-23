@@ -2,6 +2,14 @@
 
 一个免费开源的 Reddit 网页翻译插件原型（Manifest V3）。
 
+![版本](https://img.shields.io/badge/version-0.1.0-2563eb)
+![规范](https://img.shields.io/badge/manifest-v3-0f766e)
+![状态](https://img.shields.io/badge/status-prototype-f59e0b)
+
+## 安装动图
+
+![安装演示](./docs/assets/install-demo.gif)
+
 ## 功能
 
 - 开关控制

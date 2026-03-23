@@ -2,6 +2,12 @@
 
 A free and open-source Reddit translation extension (Manifest V3).
 
+![Version](https://img.shields.io/badge/version-0.1.0-2563eb)
+![Manifest](https://img.shields.io/badge/manifest-v3-0f766e)
+![Status](https://img.shields.io/badge/status-prototype-f59e0b)
+
+![Install Demo](./docs/assets/install-demo.gif)
+
 ## Languages
 
 - [English](./README.en.md)

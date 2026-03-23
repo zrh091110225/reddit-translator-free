@@ -2,6 +2,14 @@
 
 A free and open-source browser extension prototype that translates Reddit post content and comment threads inline.
 
+![Version](https://img.shields.io/badge/version-0.1.0-2563eb)
+![Manifest](https://img.shields.io/badge/manifest-v3-0f766e)
+![Status](https://img.shields.io/badge/status-prototype-f59e0b)
+
+## Install Demo
+
+![Install Demo](./docs/assets/install-demo.gif)
+
 ## Features
 
 - Enable/disable switch
