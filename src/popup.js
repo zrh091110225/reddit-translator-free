@@ -19,7 +19,8 @@ const ui = {
   contactTelegram: document.getElementById("contactTelegram"),
   openReviewPage: document.getElementById("openReviewPage"),
   statsBox: document.getElementById("statsBox"),
-  hint: document.getElementById("hint")
+  hint: document.getElementById("hint"),
+  version: document.querySelector(".version")
 };
 
 function setHint(text) {
@@ -33,11 +34,27 @@ function render(settings) {
   ui.fontColor.value = settings.fontColor;
   ui.fontSize.value = String(settings.fontSize);
   ui.fontSizeOut.value = `${settings.fontSize}px`;
+
+  // Display version from manifest
+  const manifest = chrome.runtime.getManifest();
+  if (ui.version && manifest.version) {
+    ui.version.textContent = `Version ${manifest.version}`;
+  }
 }
 
 async function getActiveTabId() {
   const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
   return tabs[0]?.id;
+}
+
+async function reloadActiveTab() {
+  const tabId = await getActiveTabId();
+  if (!tabId) return;
+  try {
+    await chrome.tabs.reload(tabId);
+  } catch {
+    // Ignore reload failures to avoid interrupting settings flow.
+  }
 }
 
 async function sendToActiveTab(message) {
@@ -119,7 +136,10 @@ async function init() {
   await refreshStats();
 
   ui.enabled.addEventListener("change", saveAndBroadcast);
-  ui.targetLang.addEventListener("change", saveAndBroadcast);
+  ui.targetLang.addEventListener("change", async () => {
+    await saveAndBroadcast();
+    await reloadActiveTab();
+  });
   ui.onlyNonTarget.addEventListener("change", saveAndBroadcast);
   ui.fontColor.addEventListener("change", saveAndBroadcast);
   ui.fontSize.addEventListener("input", () => {

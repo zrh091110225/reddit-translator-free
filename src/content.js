@@ -29,8 +29,8 @@
     }
   };
 
-  function isRedditPostPage() {
-    return /reddit\.com\/r\/.+\/comments\//.test(location.href);
+  function isSupportedRedditPage() {
+    return /(^|\.)reddit\.com$/.test(location.hostname);
   }
 
   function hashText(text) {
@@ -275,7 +275,10 @@
 
   function findCandidateElements() {
     const selectors = [
+      "shreddit-post [slot='title']",
       "shreddit-post [slot='text-body']",
+      "article[data-testid='post-container'] [data-testid='post-title']",
+      "article[data-testid='post-container'] h3",
       "article[data-testid='post-container'] [data-click-id='text']",
       "article[data-testid='post-container'] div[slot='text-body']",
       "[data-testid='comment'] p",
@@ -294,7 +297,8 @@
         if (seen.has(node)) continue;
 
         const structured = extractStructuredText(node.innerText);
-        if (compactText(structured).length < 20) continue;
+        const minLength = node.matches("[slot='title'], h3, [data-testid='post-title']") ? 8 : 20;
+        if (compactText(structured).length < minLength) continue;
 
         seen.add(node);
         nodes.push(node);
@@ -462,7 +466,7 @@
   }
 
   function scanAndTranslate() {
-    if (!isRedditPostPage()) return;
+    if (!isSupportedRedditPage()) return;
     if (!state.settings.enabled) return;
 
     const candidates = findCandidateElements();
@@ -530,7 +534,7 @@
     await loadSettings();
     await loadCache();
 
-    if (!isRedditPostPage()) return;
+    if (!isSupportedRedditPage()) return;
 
     setupObserver();
     scanAndTranslate();

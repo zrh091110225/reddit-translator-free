@@ -14,9 +14,11 @@ A free and open-source browser extension prototype that translates Reddit post c
 
 - Enable/disable switch
 - Target translation language selector
+- Auto reload active page after target language changes
 - Optional: translate only non-target-language text
 - Translation font color customization
 - Translation font size customization
+- Automatically translates Reddit home/list feed post titles and post bodies
 - Automatically translates post body and comment thread, then shows translated text below original content
 - Minimal debug stats in popup (candidates, translated, failed, queue, cache)
 - Quick links in popup:
@@ -35,7 +37,7 @@ A free and open-source browser extension prototype that translates Reddit post c
 2. Enable "Developer mode"
 3. Click "Load unpacked"
 4. Select this project directory
-5. Open a Reddit post page (`/r/.../comments/...`) for testing
+5. Open Reddit home (`https://www.reddit.com/`) or a post page (`/r/.../comments/...`) for testing
 
 ## Suggested QA
 
