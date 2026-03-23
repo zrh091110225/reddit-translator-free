@@ -6,7 +6,9 @@ A free and open-source Reddit translation extension (Manifest V3).
 ![Manifest](https://img.shields.io/badge/manifest-v3-0f766e)
 ![Status](https://img.shields.io/badge/status-prototype-f59e0b)
 
-![Install Demo](./docs/assets/install-demo.gif)
+## Page Example
+
+![Page Example](./docs/assets/page-example.png)
 
 ## Languages
 

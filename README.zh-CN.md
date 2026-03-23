@@ -6,9 +6,9 @@
 ![规范](https://img.shields.io/badge/manifest-v3-0f766e)
 ![状态](https://img.shields.io/badge/status-prototype-f59e0b)
 
-## 安装动图
+## 页面示例
 
-![安装演示](./docs/assets/install-demo.gif)
+![页面示例](./docs/assets/page-example.png)
 
 ## 功能
 

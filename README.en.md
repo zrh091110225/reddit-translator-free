@@ -6,9 +6,9 @@ A free and open-source browser extension prototype that translates Reddit post c
 ![Manifest](https://img.shields.io/badge/manifest-v3-0f766e)
 ![Status](https://img.shields.io/badge/status-prototype-f59e0b)
 
-## Install Demo
+## Page Example
 
-![Install Demo](./docs/assets/install-demo.gif)
+![Page Example](./docs/assets/page-example.png)
 
 ## Features
 
