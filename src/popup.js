@@ -19,9 +19,15 @@ const ui = {
   contactTelegram: document.getElementById("contactTelegram"),
   openReviewPage: document.getElementById("openReviewPage"),
   statsBox: document.getElementById("statsBox"),
+  debugSection: document.getElementById("debugSection"),
+  debugHeader: document.querySelector(".debug-section .row-header"),
   hint: document.getElementById("hint"),
   version: document.querySelector(".version")
 };
+
+function toggleDebugSection() {
+  ui.debugSection.classList.toggle("collapsed");
+}
 
 function setHint(text) {
   ui.hint.textContent = text || "";
@@ -146,6 +152,12 @@ async function init() {
     ui.fontSizeOut.value = `${ui.fontSize.value}px`;
   });
   ui.fontSize.addEventListener("change", saveAndBroadcast);
+  ui.debugHeader.addEventListener("click", (e) => {
+    // Prevent toggle when clicking the "Refresh" button itself
+    if (e.target.id !== "refreshStats") {
+      toggleDebugSection();
+    }
+  });
   ui.refreshStats.addEventListener("click", refreshStats);
   ui.contactTelegram.addEventListener("click", openTelegramContact);
   ui.openReviewPage.addEventListener("click", openExtensionReviewPage);
