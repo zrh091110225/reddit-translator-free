@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Reddit Translator Free",
+  "version": "0.1.0",
+  "description": "Translate Reddit posts and comment threads inline using Google Translate.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "https://www.reddit.com/*",
+    "https://reddit.com/*",
+    "https://translate.googleapis.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.reddit.com/*", "https://reddit.com/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "Reddit Translator Free"
+  }
+}
